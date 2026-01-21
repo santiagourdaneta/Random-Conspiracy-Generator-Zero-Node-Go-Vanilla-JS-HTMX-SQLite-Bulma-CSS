@@ -12,8 +12,6 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 )
 
-
-
 func main() {
 	// 1. OBSERVABILIDAD: Logs Estructurados JSON (Zero Node / Zero Heavy Tools)
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))

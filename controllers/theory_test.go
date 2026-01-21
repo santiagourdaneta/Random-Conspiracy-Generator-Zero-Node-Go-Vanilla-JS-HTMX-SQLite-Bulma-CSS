@@ -25,7 +25,7 @@ func TestGenerateEndpoint(t *testing.T) {
 	if assert.NoError(t, tc.Generate(c)) {
 		// 3. Aserciones
 		assert.Equal(t, http.StatusOK, rec.Code)
-		assert.Contains(t, rec.Body.String(), "teoria-") // Verifica que el slug esté en el HTML
-		assert.Contains(t, rec.Body.String(), "box")     // Verifica que Bulma esté presente
+		assert.Contains(t, rec.Body.String(), "is-size-5") // Verifica que hay un párrafo de teoría
+		assert.Contains(t, rec.Body.String(), "🔎")         // Verifica nuestro nuevo icono
 	}
 }

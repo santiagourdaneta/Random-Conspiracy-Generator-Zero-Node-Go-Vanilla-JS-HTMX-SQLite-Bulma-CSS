@@ -1,5 +1,5 @@
 # ETAPA 1: Compilación
-FROM golang:1.21-alpine AS builder
+FROM golang:1.25-alpine AS builder
 
 # Instalar dependencias para sqlite3 (CGO)
 RUN apk add --no-cache gcc musl-dev

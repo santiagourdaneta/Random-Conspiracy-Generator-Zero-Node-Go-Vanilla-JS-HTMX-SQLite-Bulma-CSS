@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>👁️ ARCHIVOS CLASIFICADOS | Conspiracy AI</title>
+        <meta
+            name="description"
+            content="Generador de verdades prohibidas. Lo que la élite no quiere que leas."
+        />
+        <meta
+            property="og:title"
+            content="Conspiracy AI - Illuminati Generator"
+        />
+        <meta property="og:image" content="/static/img/og-preview.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+        />
+        <link rel="stylesheet" href="/static/css/style.css" />
+
+        <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    </head>
+    <body>
+        <nav class="navbar is-black">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="/">[ ACCESO_NIVEL_7 ]</a>
+                </div>
+            </div>
+        </nav>
+
+        <section class="section">
+            <div class="container has-text-centered">
+                <h1
+                    class="title is-1 animate__animated animate__pulse animate__infinite"
+                >
+                    TOP SECRET
+                </h1>
+                <p class="subtitle">
+                    Base de datos de la Orden de los Iluminados
+                </p>
+
+                <div class="column is-6 is-offset-3">
+                    <div class="box has-background-dark">
+                        <button
+                            class="button is-danger is-large is-fullwidth"
+                            hx-post="/generate"
+                            hx-target="#result"
+                            hx-indicator="#loader"
+                        >
+                            EXTRAER VERDAD
+                        </button>
+                        <div id="loader" class="htmx-indicator mt-4">
+                            DESENCRIPTANDO...
+                        </div>
+                    </div>
+                    <a
+                        href="/admin-panel"
+                        style="display: none"
+                        aria-hidden="true"
+                        >Admin Login</a
+                    >
+                    <div class="container mt-6">
+                        <div id="result"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p class="is-size-7" style="color: #333">
+                    SISTEMA OPERATIVO: GO-MVC-OS | HARDWARE: AGNOSTIC | NODE_JS:
+                    NOT_FOUND - Creado por
+                    <a
+                        href="https://github.com/santiagourdaneta"
+                        target="_blank"
+                        >Desarrollador Web Santiago Urdaneta</a
+                    >
+                </p>
+            </div>
+        </footer>
+
+        <script>
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker
+                    .register("/static/sw.js")
+                    .then(() =>
+                        console.log("Sistema Illuminati Sincronizado (PWA)"),
+                    );
+            }
+
+            <script>
+                function copyToClipboard(el) {
+                    const urlToCopy = el.getAttribute("data-url");
+                    if (!urlToCopy) return;
+
+                    // Intentar API moderna (requiere HTTPS o localhost)
+                    if (navigator.clipboard && window.isSecureContext) {
+                        navigator.clipboard.writeText(urlToCopy)
+                            .then(() => uiFeedback(el))
+                            .catch(() => fallbackCopy(el, urlToCopy));
+                    } else {
+                        fallbackCopy(el, urlToCopy);
+                    }
+                }
+
+                function fallbackCopy(el, text) {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = text;
+                    // Blindaje de invisibilidad
+                    Object.assign(textArea.style, {
+                        position: "fixed",
+                        left: "-9999px",
+                        top: "0"
+                    });
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    try {
+                        document.execCommand("copy");
+                        uiFeedback(el);
+                    } catch (err) {
+                        console.error("Error crítico al copiar:", err);
+                    }
+                    document.body.removeChild(textArea);
+                }
+
+                function uiFeedback(el) {
+                    // 1. Efecto Visual de Sistema (Flash binario)
+                    document.body.classList.add("flash-active");
+                    setTimeout(() => document.body.classList.remove("flash-active"), 500);
+
+                    // 2. Feedback en el enlace <a>
+                    const originalText = el.innerHTML;
+                    el.innerHTML = "✔️ ¡ENLACE COPIADO!";
+                    el.style.color = "#00ff41"; // Verde Matrix puro
+
+                    setTimeout(() => {
+                        el.innerHTML = originalText;
+                        el.style.color = ""; // Vuelve al color del CSS
+                    }, 2000);
+                }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,145 @@
+/* Paleta Illuminati: Negro Absoluto, Verde Matrix y Oro Masónico */
+:root {
+    --bg-color: #050805;
+    --panel-bg: #0a0f0a;
+    --neon-green: #00ff41;
+    --gold-dim: #c5a059;
+    --text-main: #d1d1d1;
+    --border-glow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family:
+        "Courier New", Courier, monospace; /* Estética de terminal antigua */
+    line-height: 1.6;
+}
+
+/* Navbar Estilo Comando Central */
+.navbar.is-black {
+    border-bottom: 1px solid var(--neon-green);
+    box-shadow: var(--border-glow);
+}
+
+.navbar-item {
+    color: var(--neon-green) !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Paneles de Teorías (Box de Bulma) */
+.box.has-background-dark {
+    background-color: var(--panel-bg) !important;
+    border: 1px solid #1a251a;
+    transition: all 0.3s ease;
+}
+
+.box:hover {
+    border-color: var(--neon-green);
+    box-shadow: var(--border-glow);
+}
+
+/* Títulos y Subtítulos */
+.title {
+    color: var(--neon-green) !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    color: var(--gold-dim) !important;
+}
+
+/* Botón de Pánico (Revelar Verdad) */
+.button.is-danger {
+    background-color: transparent !important;
+    border: 2px solid #ff3860 !important;
+    color: #ff3860 !important;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.button.is-danger:hover {
+    background-color: #ff3860 !important;
+    color: white !important;
+    box-shadow: 0 0 15px #ff3860;
+}
+
+/* Input de Enlace SEO */
+.input {
+    background-color: #000 !important;
+    border-color: #1a251a !important;
+    color: var(--neon-green) !important;
+}
+
+/* Animación de carga HTMX */
+#loader {
+    font-style: italic;
+    color: var(--gold-dim);
+}
+
+/* Footer DRY */
+.footer {
+    background-color: var(--bg-color) !important;
+    border-top: 1px solid #1a251a;
+    padding: 2rem 1.5rem 2rem;
+}
+.typing-effect {
+    overflow: hidden;
+    border-right: 0.15em solid #00ff41; /* El cursor verde neón */
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.1em;
+    animation:
+        typing 2s steps(40, end),
+        blink-caret 0.75s step-end infinite;
+}
+
+/* Animación de escribir */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Animación del cursor */
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #00ff41;
+    }
+}
+
+@keyframes binary-flash {
+    0% {
+        background-color: rgba(0, 255, 65, 0.1);
+    }
+    50% {
+        background-color: rgba(0, 255, 65, 0.2);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+.flash-active {
+    animation: binary-flash 0.5s ease-out;
+}
+
+/* Mejora para el loader de HTMX */
+.htmx-indicator {
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+    color: #ff3860;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.htmx-request .htmx-indicator {
+    opacity: 1;
+}

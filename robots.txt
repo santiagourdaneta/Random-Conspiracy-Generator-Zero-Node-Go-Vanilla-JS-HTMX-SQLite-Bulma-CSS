@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Aquí le decimos a los bots dónde está el mapa dinámico
+Sitemap: http://localhost:1323/sitemap.xml

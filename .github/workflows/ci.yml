@@ -1,0 +1,42 @@
+name: Go Quality Control
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  qa-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+          cache: true # Optimiza para ejecuciones rápidas
+
+      - name: Install Hurl (E2E)
+        run: |
+          curl --location --remote-name https://github.com/Orange-OpenSource/hurl/releases/download/4.1.0/hurl_4.1.0_amd64.deb
+          sudo apt install ./hurl_4.1.0_amd64.deb
+
+      - name: Verify Dependencies
+        run: go mod verify
+
+      - name: Static Analysis (Lint)
+        run: go vet ./...
+
+      - name: Run Unit & Integration Tests
+        run: go test ./... -v
+
+      - name: Run E2E Tests
+        run: |
+          go run main.go & # Inicia el server en background
+          sleep 5 # Espera a que el server suba
+          hurl --test tests/e2e.hurl
+
+      - name: Build Binary (Check compilation)
+        run: go build -v -o conspiracy-app

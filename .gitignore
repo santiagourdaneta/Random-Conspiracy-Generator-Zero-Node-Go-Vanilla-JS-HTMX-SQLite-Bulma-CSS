@@ -1,0 +1,21 @@
+# Binarios
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+conspiracy_ai
+
+# Base de Datos
+*.db
+*.db-journal
+
+# Herramientas de OS
+.DS_Store
+Thumbs.db
+
+# Vendor/Dependencias (No necesario si usas go mod)
+vendor/
+
+# Logs
+*.log

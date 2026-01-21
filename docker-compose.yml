@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "1323:1323"
+    volumes:
+      - ./conspiracies.db:/root/conspiracies.db
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 50M # Límite estricto para hardware viejo

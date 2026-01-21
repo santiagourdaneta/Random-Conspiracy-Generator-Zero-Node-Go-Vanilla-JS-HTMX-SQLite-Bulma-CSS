@@ -1,4 +1,6 @@
 name: Go Quality Control
+permissions:
+  contents: read
 
 on:
   push:
